@@ -13,9 +13,9 @@ class EventName extends Component {
     return eventData.map((event, index) => {
       console.log(index);
       return (
-        <li className="list-group-item" key={index}>
+        <li className="list-group" key={index}>
           Event {index+1}
-          <ul className="list-group-item" onClick={() => this.props.currentEvent(event)}>{event.name}</ul>
+          <ul className="list-group-item" onClick={() => this.props.currentEvent()}>{event.name}</ul>
       </li>
       );
     })
@@ -23,7 +23,7 @@ class EventName extends Component {
 
   render(){
     return (
-      <div className="list-group col-sm-4">
+      <div className="list-group col-sm-12">
         <div className="list-group-item">
           <h1>{this.renderEventName()}</h1>
         </div>

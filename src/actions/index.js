@@ -15,7 +15,7 @@ export function fetchList(location) {
   let request = axios.get(
       url, {
         headers: { Authorization: `Bearer ${API_KEY}` },
-        params: { location : location}
+        params: { location : location, limit:3}
       });
 
   console.log("Request:", request);
