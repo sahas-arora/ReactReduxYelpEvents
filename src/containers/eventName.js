@@ -6,6 +6,12 @@ import { bindActionCreators } from 'redux';
 
 class EventName extends Component {
 
+  constructor(props){
+    super(props);
+
+    this.state = { location: ''};
+  }
+
   renderEventName(){
     const eventData = this.props.location;
     console.log("Event data: ", eventData);
@@ -15,7 +21,13 @@ class EventName extends Component {
       return (
         <li className="list-group" key={index}>
           Event {index+1}
-          <ul className="list-group-item" onClick={() => this.props.currentEvent()}>{event.name}</ul>
+          <ul className="list-group-item"
+              onClick={() => {
+                console.log("Sahas")
+               this.props.currentEvent(event)
+             }}>
+              {event.name}
+             </ul>
       </li>
       );
     })

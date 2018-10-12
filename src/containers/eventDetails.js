@@ -14,6 +14,7 @@ class EventDetails extends Component {
     return (
       <div className="list-group col-sm-2">Details:
         <div className="list-group-item">Event Name: {this.props.activeEvent.name}</div>
+      <div className="list-group-item">Event description: {this.props.activeEvent.description}</div>
       </div>
     );
   }
