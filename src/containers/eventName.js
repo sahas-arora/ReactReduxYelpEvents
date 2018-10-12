@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { currentEvent } from '../actions/index';
+import { bindActionCreators } from 'redux';
 
 
 class EventName extends Component {
 
-  renderEventName(eventData){
+  renderEventName(){
+    const eventData = this.props.location;
     console.log("Event data: ", eventData);
 
-    return(
-      <tr>
-        <td><h1>{eventData.data.events.map(event => event.name)}</h1></td>
-    </tr>
-);
+    return eventData.map((event, index) => {
+      console.log(index);
+      return (
+        <li className="list-group-item" key={index}>
+          Event {index+1}
+          <ul className="list-group-item" onClick={() => this.props.currentEvent(event)}>{event.name}</ul>
+      </li>
+      );
+    })
   }
 
   render(){
     return (
-      <div>
-        <table>
-          <thead>
-            <th>Event Name</th>
-          {this.renderEventName}
-          </thead>
-        </table>
+      <div className="list-group col-sm-4">
+        <div className="list-group-item">
+          <h1>{this.renderEventName()}</h1>
+        </div>
       </div>
     );
   }
@@ -34,4 +38,8 @@ let mapStateToProps = function(state){
 };
 }
 
-export default connect(mapStateToProps)(EventName);
+let mapDispatchToProps = function(dispatch){
+  return bindActionCreators({currentEvent: currentEvent}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EventName);

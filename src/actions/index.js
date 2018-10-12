@@ -26,3 +26,18 @@ export function fetchList(location) {
    payload: request
  }
 }
+
+export function currentEvent(location){
+  let url = `${thingProxyURL}${ROOT_URL}`;
+  let request = axios.get(
+      url, {
+        headers: { Authorization: `Bearer ${API_KEY}` },
+        params: { location : location}
+      });
+
+ return {
+
+   type: FETCH_EVENTS,
+   payload: request
+ }
+}
