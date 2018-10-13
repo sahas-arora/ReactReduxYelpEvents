@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SearchBar from './containers/searchBar.js';
 import EventName from './containers/eventName.js';
 import EventDetails from './containers/eventDetails';
+import Home from './components/home.js';
 
 
 const createStoreWithMiddleware = applyMiddleware(promiseMiddleware)(createStore);
@@ -17,9 +18,8 @@ ReactDOM.render(
     <Router>
       <div>
           <Switch>
-          <Route component={SearchBar} path="/" />
-          <Route component={EventName} path="/" />
-          <Route component={EventDetails} path="/EventDetails" />
+            <Route exact component={EventDetails} path="/EventDetails" />
+            <Route exact component={Home} path="/" />
           </Switch>
       </div>
     </Router>

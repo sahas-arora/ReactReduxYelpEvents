@@ -1,0 +1,19 @@
+import React, { Component } from 'react';
+import EventName from '../containers/eventName';
+import SearchBar from '../containers/searchBar';
+import EventDetails from '../containers/eventDetails';
+
+
+class Home extends Component {
+  render () {
+    return (
+      <div>
+      <SearchBar />
+      <EventName />
+      <EventDetails />
+  </div>
+    );
+  }
+}
+
+export default Home;

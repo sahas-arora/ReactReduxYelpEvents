@@ -35,7 +35,7 @@ class EventName extends Component {
 
   render(){
     return (
-      <div className="list-group col-sm-12">
+      <div className="list-group col-sm-6">
         <div className="list-group-item">
           <h1>{this.renderEventName()}</h1>
         </div>
