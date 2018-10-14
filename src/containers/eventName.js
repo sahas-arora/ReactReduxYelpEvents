@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { currentEvent } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class EventName extends Component {
@@ -17,17 +18,15 @@ class EventName extends Component {
     const eventData = this.props.location;
     console.log("Event data: ", eventData);
 
-    return eventData.map((event, index) => {
-      console.log(index);
+    return eventData.map((event, id) => {
+      console.log(id);
       return (
-        <li className="list-group" key={index}>
-          Event {index+1}
+        <li className="list-group" key={id}>
+          Event {id+1}
           <ul className="list-group-item"
               onClick={() => {
                 return (
-                  <Router>
-                  <Route exact component={this.props.currentEvent(event)} path="/EventDetails" />
-                  </Router>
+              <Link to="/EventDetails/{index}">{this.props.currentEvent(event)}</Link>
              );
              }}>
               {event.name}

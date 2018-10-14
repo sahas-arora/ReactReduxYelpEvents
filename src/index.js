@@ -18,7 +18,7 @@ ReactDOM.render(
     <Router>
       <div>
           <Switch>
-            <Route exact component={EventDetails} path="/EventDetails" />
+            <Route exact component={EventDetails} path="/EventDetails/:id" />
             <Route exact component={Home} path="/" />
           </Switch>
       </div>

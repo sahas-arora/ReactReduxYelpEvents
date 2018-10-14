@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { currentEvent } from '../actions/index';
+import GoogleMap from '../components/googleMaps.js';
 
 class EventDetails extends Component {
   //
@@ -12,13 +13,22 @@ class EventDetails extends Component {
 
   render() {
 
+
     if(!this.props.activeEvent){
-      return <div>Click on an event to see more details</div>
+      return <div></div>
     }
 
-    if(!this.props.activeEvent.cost || this.props.activeEvent.cost == 0){
+    if(!this.props.activeEvent.cost || this.props.activeEvent.cost == 0) {
       this.props.activeEvent.cost = 'Free Entry.';
     }
+    else {
+      this.props.activeEvent.cost = "$" + this.props.activeEvent.cost;
+    }
+
+    let lat = this.props.activeEvent.latitude;
+    console.log(lat);
+    let lon = this.props.activeEvent.longitude;
+    console.log(lon);
 
     return (
       <div className="text-xs-right">
@@ -27,6 +37,9 @@ class EventDetails extends Component {
       <li className="list-group-item">About: {this.props.activeEvent.description}</li>
     <li className="list-group-item">Address: {this.props.activeEvent.location.address1}, {this.props.activeEvent.location.city}, {this.props.activeEvent.location.country}</li>
       <li className="list-group-item">Entry Fee: {this.props.activeEvent.cost}</li>
+    <li className="list-group-item">
+      <GoogleMap lat={lat} lon={lon} />
+  </li>
       </div>
       </div>
     );
