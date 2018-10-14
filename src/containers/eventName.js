@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { currentEvent } from '../actions/index';
 import { bindActionCreators } from 'redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 class EventName extends Component {
@@ -23,8 +24,11 @@ class EventName extends Component {
           Event {index+1}
           <ul className="list-group-item"
               onClick={() => {
-                console.log("Sahas")
-               this.props.currentEvent(event)
+                return (
+                  <Router>
+                  <Route exact component={this.props.currentEvent(event)} path="/EventDetails" />
+                  </Router>
+             );
              }}>
               {event.name}
              </ul>
