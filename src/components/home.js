@@ -10,7 +10,6 @@ class Home extends Component {
       <div>
       <SearchBar />
       <EventName />
-      <EventDetails />
   </div>
     );
   }

@@ -3,3 +3,8 @@
   font-family: "Gill Sans", sans-serif ;
   color: red;
 }
+
+.showMap {
+  height: 300px;
+  width: 300px;
+}

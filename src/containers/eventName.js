@@ -18,19 +18,21 @@ class EventName extends Component {
     const eventData = this.props.location;
     console.log("Event data: ", eventData);
 
-    return eventData.map((event, id) => {
-      console.log(id);
+
+    return eventData.map((event, index) => {
+      let myIndex = `/EventDetails/${index}`;
+      console.log("Index is:", myIndex);
+
+      console.log(index);
       return (
-        <li className="list-group" key={id}>
-          Event {id+1}
-          <ul className="list-group-item"
-              onClick={() => {
-                return (
-              <Link to="/EventDetails/{index}">{this.props.currentEvent(event)}</Link>
-             );
-             }}>
-              {event.name}
-             </ul>
+        <li className="list-group" key={index}>
+          Event {index+1}
+          <br />
+        <Link to={myIndex} onClick= {() => {
+            this.props.currentEvent(event)
+          }}>
+            {event.name}
+          </Link>
       </li>
       );
     })

@@ -4,20 +4,38 @@ import React, { Component } from 'react';
 
 class GoogleMap extends Component {
 
-  componentDidMount() {
+
+  componentDidMount(){
+    console.log(this.props);
 
     new google.maps.Map(this.refs.map, {
-      zoom: 0,
+      zoom: 20,
       center: {
-        lat: parseFloat(this.props.latitude),
-        lng: parseFloat(this.props.longitude)
+        lat: this.props.lat,
+        lng: this.props.lon
       }
     });
+
+
+  }
+
+  componentDidUpdate() {
+
+    console.log(this.props);
+
+    new google.maps.Map(this.refs.map, {
+      zoom: 20,
+      center: {
+        lat: this.props.lat,
+        lng: this.props.lon
+      }
+    });
+
   }
 
   render() {
     return(
-      <div ref="map" />
+      <div ref="map" className="showMap" />
     );
   }
 }

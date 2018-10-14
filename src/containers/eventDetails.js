@@ -39,7 +39,7 @@ class EventDetails extends Component {
       <li className="list-group-item">Entry Fee: {this.props.activeEvent.cost}</li>
     <li className="list-group-item">
       <GoogleMap lat={lat} lon={lon} />
-  </li>
+    </li>
       </div>
       </div>
     );
